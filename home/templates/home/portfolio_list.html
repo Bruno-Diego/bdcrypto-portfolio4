@@ -1,0 +1,26 @@
+
+{% if request.user.is_authenticated %}
+    <h2>The user {{request.user}} is logged in!</h2>
+    <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <a href="{% url 'login' %}">LogIn</a>
+{% endif %}
+<hr>
+<h1>Portfolios List</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    {% for portfolio in object_list %}
+    <tr>
+        <td><h3>{{ portfolio.id }}</h3></td>
+        <td><h3>{{ portfolio.name }}</h3></td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td>Create A Portfolio</td>
+        <td colspan="2">0.00</td>
+    </tr>
+    {% endfor %}
+</table>
