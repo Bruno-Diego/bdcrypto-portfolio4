@@ -1,3 +1,6 @@
+{% extends "home/index.html" %}
+
+{% block content %}
 
 {% if request.user.is_authenticated %}
     <h2>The user {{request.user}} is logged in!</h2>
@@ -24,3 +27,5 @@
     </tr>
     {% endfor %}
 </table>
+
+{% endblock %}
