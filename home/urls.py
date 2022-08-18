@@ -1,6 +1,7 @@
 from django.urls import path, include
-from .views import PortfoliosList, CustomLoginView, RegisterPage, home_page
 from django.contrib.auth.views import LogoutView
+
+from .views import PortfoliosList, CustomLoginView, RegisterPage, home_page
 
 urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),

@@ -22,7 +22,7 @@
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{% url 'home-page' %}">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="{% url 'portfolios' %}">Portfolios</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
@@ -34,7 +34,7 @@
         <!-- mobile first design for navbar -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{% url 'home-page' %}">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="{% url 'portfolios' %}">Portfolios</a></li>
             {% if request.user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
@@ -58,9 +58,8 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Login</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{% url 'home-page' %}">Home</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{% url 'portfolios' %}">portfolios</a></li>
                 </ul>
             </div>
         </div>

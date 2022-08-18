@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic.edit import FormView
+from django.views.generic import ListView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 
-from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
@@ -45,12 +46,18 @@ class RegisterPage(FormView):
         return super(RegisterPage, self).get(*args, **hwargs)
 
 
-class PortfoliosList(LoginRequiredMixin, generic.ListView):
+class PortfoliosList(LoginRequiredMixin, ListView):
     """
     Class of a view created to show the 
     list of portfolios created by the user
     """
     model = Portfolio
+    context_object_name = 'portfolios'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['portfolios'] = context['portfolios'].filter(user=self.request.user)
+        return context
 
 
 def home_page(request):
