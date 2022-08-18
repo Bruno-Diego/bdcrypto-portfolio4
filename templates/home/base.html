@@ -17,21 +17,29 @@
     <header>
         <!-- Navigation -->
         <nav>
-            <div class="nav-wrapper">
-              <a href="#!" class="brand-logo">Logo</a>
+            <div class="nav-wrapper deep-purple darken-3">
+              <a href="{% url 'home-page' %}" class="brand-logo">Logo</a>
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
-                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'home-page' %}">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Login</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
               </ul>
             </div>
           </nav>        
         <!-- mobile first design for navbar -->
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'home-page' %}">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Login</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
         </ul>
     </header>
     <main>
@@ -40,7 +48,7 @@
         {% endblock %}
     </main>
     <!-- Footer -->
-    <footer class="page-footer">
+    <footer class="page-footer deep-purple darken-3">
         <div class="container">
             <div class="row">
             <div class="col l6 s12">
