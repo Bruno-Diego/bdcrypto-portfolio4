@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, FormView
+from django.views.generic.edit import CreateView, UpdateView, FormView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
@@ -62,6 +62,16 @@ class PortfoliosList(LoginRequiredMixin, ListView):
 class PortfolioCreate(CreateView):
     '''
     View for the creation of a portfolio
+    '''
+    model = Portfolio
+    fields = '__all__'
+    success_url = reverse_lazy('portfolios')
+    template_name = 'home/create.html'
+
+
+class PortfolioUpdate(UpdateView):
+    '''
+    View for the update of a portfolio
     '''
     model = Portfolio
     fields = '__all__'
