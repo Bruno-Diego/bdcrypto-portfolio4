@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.template.defaultfilters import slugify
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
@@ -59,24 +60,33 @@ class PortfoliosList(LoginRequiredMixin, ListView):
         return context
 
 
-class PortfolioCreate(CreateView):
+class PortfolioCreate(LoginRequiredMixin, CreateView):
     '''
     View for the creation of a portfolio
     '''
     model = Portfolio
-    fields = '__all__'
+    fields = ['name']
     success_url = reverse_lazy('portfolios')
     template_name = 'home/create.html'
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.slug = slugify(form['name'].value())
+        return super(PortfolioCreate, self).form_valid(form)
 
-class PortfolioUpdate(UpdateView):
+
+class PortfolioUpdate(LoginRequiredMixin, UpdateView):
     '''
     View for the update of a portfolio
     '''
     model = Portfolio
-    fields = '__all__'
+    fields = ['name']
     success_url = reverse_lazy('portfolios')
     template_name = 'home/create.html'
+
+    def form_valid(self, form):
+        form.instance.slug = slugify(form['name'].value())
+        return super(PortfolioUpdate, self).form_valid(form)
 
 
 class PortfolioDetail(LoginRequiredMixin, DetailView):
