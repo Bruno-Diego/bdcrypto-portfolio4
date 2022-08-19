@@ -21,15 +21,14 @@
         <td><h6>{{ portfolio.name }}</h6></td>
         <td>
             <a href="{% url 'portfolio' portfolio.slug %}">View</a>
-        </td>
-        <td>
             <a href="{% url 'update' portfolio.slug %}">Edit</a>
+            <a href="{% url 'delete' portfolio.slug %}">Delete</a>
         </td>
     </tr>
     {% empty %}
     <tr>
         <td>Create A Portfolio</td>
-        <td colspan="2">0.00</td>
+        <td><a href="{% url 'create' %}">Create</a></td>
     </tr>
     {% endfor %}
 </table>

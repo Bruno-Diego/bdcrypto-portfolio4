@@ -1,0 +1,6 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure that you want to delete this Portfolio: "{{portfolio.name}}"</p>
+    <input type="submit" value="Delete">
+    <a href="{% url 'portfolios' %}">I DO NOT want to Delete! Go back to Portfolios List.</a>
+</form>

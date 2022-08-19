@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, UpdateView, FormView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
@@ -83,6 +83,12 @@ class PortfolioDetail(LoginRequiredMixin, DetailView):
     model = Portfolio
     context_object_name = 'portfolio'
     template_name = 'home/portfolio.html'
+
+
+class PortfolioDelete(LoginRequiredMixin, DeleteView):
+    model = Portfolio
+    context_object_name = 'portfolio'
+    success_url = reverse_lazy('portfolios')
 
 
 def home_page(request):
