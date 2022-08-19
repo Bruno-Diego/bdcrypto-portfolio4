@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-from django.views import generic
-from django.views.generic.edit import FormView
-from django.views.generic import ListView
+from django.views.generic.edit import CreateView, FormView
+from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 
@@ -11,18 +10,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
 from .models import Portfolio, Asset
-
-
-class CustomLoginView(LoginView):
-    '''
-    Class of the view for the login page
-    '''
-    template_name = 'home/login.html'
-    fields = "__all__"
-    redirect_authenticated_user = True
-
-    def get_success_url(self):
-        return reverse_lazy('portfolios')
 
 
 class RegisterPage(FormView):
@@ -46,6 +33,18 @@ class RegisterPage(FormView):
         return super(RegisterPage, self).get(*args, **hwargs)
 
 
+class CustomLoginView(LoginView):
+    '''
+    Class of the view for the login page
+    '''
+    template_name = 'home/login.html'
+    fields = "__all__"
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('portfolios')
+
+
 class PortfoliosList(LoginRequiredMixin, ListView):
     """
     Class of a view created to show the 
@@ -58,6 +57,22 @@ class PortfoliosList(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['portfolios'] = context['portfolios'].filter(user=self.request.user)
         return context
+
+
+class PortfolioCreate(CreateView):
+    '''
+    View for the creation of a portfolio
+    '''
+    model = Portfolio
+    fields = '__all__'
+    success_url = reverse_lazy('portfolios')
+    template_name = 'home/create.html'
+
+
+class PortfolioDetail(LoginRequiredMixin, DetailView):
+    model = Portfolio
+    context_object_name = 'portfolio'
+    template_name = 'home/portfolio.html'
 
 
 def home_page(request):

@@ -10,15 +10,18 @@
 {% endif %}
 <hr>
 <h1>Portfolios List</h1>
+<a href="{% url 'create' %}">Create a Portfolio</a>
 <table>
     <tr>
-        <th>ID</th>
         <th>Name</th>
+        <th>Details</th>
     </tr>
     {% for portfolio in portfolios %}
     <tr>
-        <td><h3>{{ portfolio.id }}</h3></td>
-        <td><h3>{{ portfolio.name }}</h3></td>
+        <td><h6>{{ portfolio.name }}</h6></td>
+        <td>
+            <a href="{% url 'portfolio' portfolio.slug %}">Details</a>
+        </td>
     </tr>
     {% empty %}
     <tr>

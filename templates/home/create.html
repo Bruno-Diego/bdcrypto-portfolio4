@@ -1,0 +1,14 @@
+
+
+{% block content %}
+    <h3>Create a Portfolio Form</h3>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <hr>
+        <input type="submit" value="submit">
+    </form>
+
+    <a href="{% url 'portfolios' %}">Go back to Portfolios List</a>
+{% endblock %}
