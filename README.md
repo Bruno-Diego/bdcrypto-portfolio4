@@ -1,6 +1,6 @@
 # BDCrypto Portfolios Website
 
-![Access the BDCrypto Portfolios Website here](https://bdcrypto-portfolio4.herokuapp.com/)(Ctrl + Click to open on a new tab)
+[Access the BDCrypto Portfolios Website here](https://bdcrypto-portfolio4.herokuapp.com/)(Ctrl + Click to open on a new tab)
 
 ## Table of Contents
 1. [**UX**](#ux)
