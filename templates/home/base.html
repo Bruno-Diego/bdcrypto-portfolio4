@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,28 +10,33 @@
     <!-- Materialize framework and google icons for frontend -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon_32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon_16x16.png' %}">
     <!-- css file -->
-    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" >
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
     <title>BDCrypto</title>
 </head>
+
 <body>
     <header>
         <!-- Navigation -->
         <nav>
             <div class="nav-wrapper deep-purple darken-3">
-              <a href="{% url 'home-page' %}" class="brand-logo">BDCrypto</a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="{% url 'home-page' %}">Home</a></li>
-                <li><a href="{% url 'portfolios' %}">Portfolios</a></li>
-                {% if request.user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-              </ul>
+                <a href="{% url 'home-page' %}" class="brand-logo">BDCrypto</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{% url 'home-page' %}">Home</a></li>
+                    <li><a href="{% url 'portfolios' %}">Portfolios</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
             </div>
-          </nav>        
+        </nav>
         <!-- mobile first design for navbar -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{% url 'home-page' %}">Home</a></li>
@@ -51,29 +57,31 @@
     <footer class="page-footer deep-purple darken-3">
         <div class="container">
             <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">BDCrypto website</h5>
-              <p class="grey-text text-lighten-4">The best cryptocurrency management system to protect your digital assets.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="{% url 'home-page' %}">Home</a></li>
-                    <li><a class="grey-text text-lighten-3" href="{% url 'portfolios' %}">portfolios</a></li>
-                </ul>
+                <div class="col l6 s12">
+                    <h5 class="white-text">BDCrypto website</h5>
+                    <p class="grey-text text-lighten-4">The best cryptocurrency management system to protect your
+                        digital assets.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="{% url 'home-page' %}">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{% url 'portfolios' %}">portfolios</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            Developed by BD
-            © 2022 Copyright 
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <div class="footer-copyright">
+            <div class="container">
+                Developed by BD
+                © 2022 Copyright
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
         </div>
-    </div>
-</footer>
-<!-- JS for front end elements -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="{% static 'script.js' %}"></script>
+    </footer>
+    <!-- JS for front end elements -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
 </body>
+
 </html>
