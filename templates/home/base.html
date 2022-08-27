@@ -25,7 +25,7 @@
         <nav>
             <div class="nav-wrapper deep-purple darken-3">
                 <a href="{% url 'home-page' %}" class="brand-logo">BDCrypto</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="{% url 'home-page' %}" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{% url 'home-page' %}">Home</a></li>
                     <li><a href="{% url 'portfolios' %}">Portfolios</a></li>
@@ -48,7 +48,7 @@
             {% endif %}
         </ul>
     </header>
-    <main class="deep-purple lighten-2">
+    <main class="deep-purple lighten-5">
         {% block content %}
         <!-- Content Goes here -->
         {% endblock %}
