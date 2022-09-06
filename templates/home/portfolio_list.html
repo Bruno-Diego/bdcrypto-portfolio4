@@ -9,28 +9,36 @@
     <a href="{% url 'login' %}">LogIn</a>
 {% endif %}
 <hr>
-<h1>Portfolios List</h1>
-<a href="{% url 'create' %}">Create a Portfolio</a>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Details</th>
-    </tr>
-    {% for portfolio in portfolios %}
-    <tr>
-        <td><h6>{{ portfolio.name }}</h6></td>
-        <td>
-            <a href="{% url 'portfolio' portfolio.slug %}">View</a>
-            <a href="{% url 'update' portfolio.slug %}">Edit</a>
-            <a href="{% url 'delete' portfolio.slug %}">Delete</a>
-        </td>
-    </tr>
-    {% empty %}
-    <tr>
-        <td>Create A Portfolio</td>
-        <td><a href="{% url 'create' %}">Create</a></td>
-    </tr>
-    {% endfor %}
-</table>
+<h1 class="header">Portfolios List</h1>
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <!-- Portfolios table -->
+        <table class="responsive-table highlight centered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Total Value</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for portfolio in portfolios %}
+                <tr>
+                    <td><h6>{{ portfolio.name }}</h6></td>
+                    <td><h6>$</h6></td>
+                    <td>
+                        <a href="{% url 'portfolio' portfolio.slug %}">View</a>
+                        <a href="{% url 'update' portfolio.slug %}">Edit</a>
+                        <a href="{% url 'delete' portfolio.slug %}">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="{% url 'create' %}">Create a new Portfolio</a>
+    </div>
+</div>
 
 {% endblock %}
