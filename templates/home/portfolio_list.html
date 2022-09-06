@@ -3,13 +3,13 @@
 {% block content %}
 
 {% if request.user.is_authenticated %}
-    <h2>The user {{request.user}} is logged in!</h2>
-    <a href="{% url 'logout' %}">Logout</a>
+<h2>Welcome back {{request.user}}!</h2>
+<a href="{% url 'logout' %}">Logout</a>
 {% else %}
-    <a href="{% url 'login' %}">LogIn</a>
+<a href="{% url 'login' %}">LogIn</a>
 {% endif %}
 <hr>
-<h1 class="header">Portfolios List</h1>
+<h1>Portfolios List</h1>
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <!-- Portfolios table -->
@@ -24,8 +24,12 @@
             <tbody>
                 {% for portfolio in portfolios %}
                 <tr>
-                    <td><h6>{{ portfolio.name }}</h6></td>
-                    <td><h6>$</h6></td>
+                    <td>
+                        <h6>{{ portfolio.name }}</h6>
+                    </td>
+                    <td>
+                        <h6>$</h6>
+                    </td>
                     <td>
                         <a href="{% url 'portfolio' portfolio.slug %}">View</a>
                         <a href="{% url 'update' portfolio.slug %}">Edit</a>
@@ -36,8 +40,14 @@
                 {% endfor %}
             </tbody>
         </table>
-        
-        <a href="{% url 'create' %}">Create a new Portfolio</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m2 offset-m5">
+        <a class="waves-effect waves-light btn-small" href="{% url 'create' %}">
+            <i class="material-icons right">add_circle_outlined</i>
+            Create a new Portfolio 
+        </a>
     </div>
 </div>
 
