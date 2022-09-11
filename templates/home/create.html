@@ -1,8 +1,11 @@
 {% extends "home/base.html" %}
 
 {% block content %}
+{% if request.resolver_match.route == 'create/' %}
     <h3>Create a Portfolio Form</h3>
-
+{% else %}
+    <h3>Update your Portfolio's name</h3>
+{% endif %}
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
