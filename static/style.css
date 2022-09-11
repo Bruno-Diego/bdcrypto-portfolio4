@@ -22,6 +22,12 @@ label {
   color: white;
 }
 
-input, input:focus {
+input[type=text], input[type=text]:focus {
   color: white;
+}
+
+input[type=submit] {
+  color: #6a1b9a;
+  text-transform: uppercase;
+  cursor: pointer;
 }
