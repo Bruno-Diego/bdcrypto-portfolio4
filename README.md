@@ -40,6 +40,10 @@
 
 ## Wireframes
 
+This website was first planned from scratch on Balsamic Wireframes with the license provided by the Code Institute. [Click here](./docs/readme/wireframes.pdf) to see the wireframes of the raw project.
+
+Please note the actual website has changed slightly from these wireframes.
+
 ## Technologies Used
 
 ## Technologies Used
