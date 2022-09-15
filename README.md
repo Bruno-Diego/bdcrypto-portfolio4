@@ -32,6 +32,24 @@
 
 ## Purpose of the project
 
+Welcome fellow visitor,
+
+This is the BDCrypto portfolios website. It's an application that helps to manage portfolios with crypto assets and track their performance. The website has a simple yet effective interface and provides real use cases to cryptocurrency investors.
+
+This website is made of the following sections:
+
+1. Navigation bar with the title and menu.
+2. Presentation with hero and login button.
+3. Resgistration and login page.
+4. List of portfolios that can be created by the user.
+5. List of assets for every portfolio.
+6. Possibility to create, edit and delete portfolios.
+7. Possibility to add and remove assets to the portfolios.
+
+The business goals for this application is to provide users an application easy to use and to track and manage their cryptocurrency holdings.
+
+The target users are crypto enthusiasts of all ages looking for an application to manage their portfolios and track their performance.
+
 ## User stories
 
 ## Features
