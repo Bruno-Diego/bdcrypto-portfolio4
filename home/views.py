@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib import messages
 
 from .models import Portfolio, Asset
 
@@ -26,6 +27,7 @@ class RegisterPage(FormView):
         user = form.save()
         if user is not None:
             login(self.request, user)
+        messages.success(self.request, 'You are registered and logged in!')
         return super(RegisterPage, self).form_valid(form)
 
     def get(self, *args, **hwargs):
@@ -43,6 +45,7 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
+        messages.success(self.request, 'You are logged in!')
         return reverse_lazy('portfolios')
 
 
@@ -72,6 +75,7 @@ class PortfolioCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.slug = slugify(form['name'].value())
+        messages.success(self.request, 'Portfolio created!')
         return super(PortfolioCreate, self).form_valid(form)
 
 
@@ -86,6 +90,7 @@ class PortfolioUpdate(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.slug = slugify(form['name'].value())
+        messages.success(self.request, 'Portfolio updated!')
         return super(PortfolioUpdate, self).form_valid(form)
 
 
@@ -99,7 +104,9 @@ class PortfolioDelete(LoginRequiredMixin, DeleteView):
     model = Portfolio
     context_object_name = 'portfolio'
     success_url = reverse_lazy('portfolios')
-
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'Portfolio DELETED!')
+        return super(PortfolioDelete, self).delete(request, *args, **kwargs)
 
 def home_page(request):
     '''Function to display the home page'''
