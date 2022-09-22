@@ -52,6 +52,24 @@ The target users are crypto enthusiasts of all ages looking for an application t
 
 ## User stories
 
+### EPIC | Website
+
+- As a **Website User**, I can intuitively navigate around the site so that I can find the content I'm looking for.
+- As a **Website User**, I can understand the purpose of the website so that I decide if it meets my needs.
+
+### EPIC | User authentication
+
+- As a **Website User** I can register an account so that I can create a portfolio to add/delete crypto assets.
+- As a **Website User** I can Sign in and Sign out to my account so that I keep my account secure.
+
+### EPIC | Portfolio CRUD
+
+- As a **Website User**, I can create a Portfolio of assets so that I can manage and track my crypto holdings.
+
+### EPIC | Assets CRUD
+
+- As a **Website User** I can Add assets to my Portfolio so that I can have it on my holdings.
+
 ## Features
 
 ## Future features
@@ -73,8 +91,6 @@ All the data needed to store on a functioning portfolio tracker was considered i
 The relationship between the Portfolio and the Assets database is a zero-to-many as one portfolio could have zero or many assets within.
 
 [Click here](./docs/readme/erddiagram.png) to see the ERD diagram of the raw project.
-
-## Technologies Used
 
 ## Technologies Used
 
