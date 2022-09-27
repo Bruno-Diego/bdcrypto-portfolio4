@@ -94,6 +94,38 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 
 ## Technologies Used
 
+  - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+    - Used as the basic building block for the project and to structure the content.
+  - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+    - Used to style all the web content across the project. 
+  - [JAVASCRIPT](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+    - Used mostly to add some interactivity to the web elements.
+  - [Python](https://www.python.org/)
+    - Used when creating the backend functionality in Django.
+  - [GitHub](https://github.com/)
+    - Used to store code for the project after being pushed.
+  - GitHub [Project Boards](https://github.com/users/Bruno-Diego/projects)
+    - Used to keep track of all the User Stories and Tasks necessary in order to build
+  - [Gitpod](https://www.gitpod.io/)
+    - Used as the development environment.
+  - [Git](https://git-scm.com/)
+    - Used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
+  - [Materialize](https://materializecss.com/)
+    - Used to as the front-end framework.
+  - [Favicon.io](https://favicon.io/)
+    - Used to create favicon for my website.
+  - [Grammarly](https://www.grammarly.com/)
+    - Used to fix the grammar errors across the project.
+  - [Django](https://www.djangoproject.com/)
+    - Used as Python-based free and open-source web framework that follows the model–template–views architectural pattern to develop the basic back-end of the project.
+  - [Grammarly](https://www.grammarly.com/)
+    - Used to fix the grammar errors across the project.
+  - [Grammarly](https://www.grammarly.com/)
+    - Used to fix the grammar errors across the project.
+
+
+
+ 
 ## Code validation
 
 ## Test cases
