@@ -140,4 +140,58 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 
 ## Via Heroku
 
+Deploying the project using Heroku:
+
+   - Login to [Heroku](https://dashboard.heroku.com/apps) and Create a New App
+   - Give the App a name, it must be unique, and select a region closest to you
+   - Click on 'Create App', this will take you to a page where you can deploy your project
+   - Click on the 'Resources' tab and search for 'Heroku Postgres' as this is the add-on you will use for the deployed database
+   - Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment. 
+   - Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py as a root level file.
+     - The env.py files is where the projects secret environment variables are stored. This file is then added to a gitnore file so it isn't stored publicly within the projects repository.
+   - Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on GitPod.
+   - Within the [settings.py](settings.py) file you need to import several libraries:
+
+    ```python
+    import os
+    import dj_database_url
+    from django.contrib.messages import constants as messages
+    if os.path.isfile('env.py'):
+        import env
+    ```
+
+   - Then, we need to replace the current insecre secret key with ```os.environ.get('SECRET_KEY)'```, that we set witin the env.py file.
+   - Once the secret key is replaced, scroll down to DATABASES to connect to the Postgres database. Comment out the current code and add the following python dictionary: 
+
+```python
+DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+```
+
+   - The next step is to connect the project to whitenoise, which is where the static files will be stored. You can find a full explanation of how to install whitenoise [here](http://whitenoise.evans.io/en/stable/)
+   - Then on Heroku add to the Config Vars, DISABLE_COLLECTSTATIC = 1, as a temporary measure to enable deployment without any static files, this will be removed when it is time to deploy the full project.
+   - Next we need to tell Django where to store the media and static files. Towards the bottom of settings.py file we can add:
+
+```python
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+```
+
+   - Then we need to tell Django where the templates will be stored. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll down to TEMPLATES and add the templates directory variable to 'DIRS': [].
+   - Now we have to add our Heroku Host Name into allowed hosts in settings.py file:
+
+```python
+ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
+```
+
+   - Finally, to complete the first deployment set up of the skeleton app, create a Procfile so that Heroku knows how to run the project. Within this file add the following: web: gunicorn APP-NAME.wsgi Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a standard that allows Python services to integrate with web servers.
+   - Now, go to the 'Deploy' Tab on Heroku. Find the 'Deployment Method' section and choose GitHub. Connect to your GitHub account and find the repo you want to deploy. 
+   - Scroll down to the Automatic and Manual Deploys sections. Click 'Deploy Branch' in the Manual Deploy section and waited as Heroku installed all dependencies and deployed the code.
+   - Once the project is finnished deploying, click 'Open App' to see the newly deployed project.
+   - Before deploying the final draft of your project you must:
+   - Remove staticcollect=1 from congifvars within Heroku
+   - Ensure DEBUG is set to false in settings.py file or:
+   - Set DEBUG to development with: development = os.environ.get('DEVELOPMENT', False) above it.
+
 ## Credits
