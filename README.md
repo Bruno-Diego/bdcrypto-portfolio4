@@ -132,6 +132,23 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 
 ## Fixed bugs
 
+**Home page view**
+- In views.py, the home page view was coded as a function but it should be a class to be consistent with the rest of the code.
+- To accomplish it, the generic view `TemplateView` had to be imported.
+- It was:
+```
+def home_page(request):
+    '''Function to display the home page'''
+    return render(request, 'home/index.html')
+```
+and after fix:
+```
+class home_page(TemplateView):
+    '''Function to display the home page'''
+    template_name = 'home/index.html'
+```
+- Also, the class method `.as_view()` was added to the home_page url in urls.py.
+
 ## Supported screens and browsers
 
 ## Deployment
