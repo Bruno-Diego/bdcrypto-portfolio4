@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
@@ -108,6 +108,7 @@ class PortfolioDelete(LoginRequiredMixin, DeleteView):
         messages.success(self.request, 'Portfolio DELETED!')
         return super(PortfolioDelete, self).delete(request, *args, **kwargs)
 
-def home_page(request):
+class home_page(TemplateView):
     '''Function to display the home page'''
-    return render(request, 'home/index.html')
+    template_name = 'home/index.html'
+    #return render(request, 'home/index.html')
