@@ -111,4 +111,3 @@ class PortfolioDelete(LoginRequiredMixin, DeleteView):
 class home_page(TemplateView):
     '''Function to display the home page'''
     template_name = 'home/index.html'
-    #return render(request, 'home/index.html')
