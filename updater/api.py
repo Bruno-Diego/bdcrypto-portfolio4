@@ -7,6 +7,9 @@ if os.path.isfile('env.py'):
 
 
 def _get_coins_json():
+    """
+    Get data from API
+    """
     url = 'https://coinranking1.p.rapidapi.com/coins'
     parameters = {
     "referenceCurrencyUuid":"yhjMzLPhuIDl",
