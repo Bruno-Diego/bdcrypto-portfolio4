@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib import messages
 
-from .models import Portfolio, Asset
+from .models import Portfolio
 
 
 class RegisterPage(FormView):
