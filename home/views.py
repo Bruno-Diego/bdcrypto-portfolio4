@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib import messages
 
-from .models import Portfolio
+from .models import Portfolio, Asset
 
 
 class RegisterPage(FormView):
@@ -98,6 +98,11 @@ class PortfolioDetail(LoginRequiredMixin, DetailView):
     model = Portfolio
     context_object_name = 'portfolio'
     template_name = 'home/portfolio.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['assets'] = Asset.objects.all().filter(portfolio_name=context['portfolio'])
+        return context
 
 
 class PortfolioDelete(LoginRequiredMixin, DeleteView):
@@ -111,3 +116,4 @@ class PortfolioDelete(LoginRequiredMixin, DeleteView):
 class home_page(TemplateView):
     '''Function to display the home page'''
     template_name = 'home/index.html'
+

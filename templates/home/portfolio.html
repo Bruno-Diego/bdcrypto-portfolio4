@@ -1,11 +1,82 @@
 {% extends "home/base.html" %}
 
 {% block content %}
-
+{% if messages %}
+    <div class="row">
+        <div class="col s12 m2 offset-m5">
+            {% for message in messages %}
+            <div {% if message.tags %} class="{{ message.tags }} toast rounded green lighten-3 green-text text-darken-4"{% endif %}>{{ message }}</div >
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
 <div class="row">
-    <div class="col s12 m12 center">
-        <h3 class="purple-text text-darken-4">Details for the <strong>{{portfolio}}</strong> portfolio</h3>
+    <div class="col s12 m6 offset-m3 card card-content deep-purple darken-2 white-text">
+        <div class="row">
+            <div class="col s12 center center-align">
+                <h3><strong>{{portfolio}}</strong> portfolio: List of assets</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <!-- Portfolios table -->
+                <table class="responsive-table highlight centered">
+                    <thead>
+                        <tr>
+                            <th>Icon</th>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Price ($)</th>
+                            <th>Total Value</th>
+                            <th>PnL</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for asset in assets %}
+                        <tr>
+                            <td>
+                                <span class="purple-text text-darken-4"><strong>{{ asset.icon }}</strong></span>
+                            </td>
+                            <td>
+                                <span class="purple-text text-darken-4"><strong>{{ asset.symbol }}</strong></span>
+                            </td>
+                            <td>
+                                <span class="purple-text text-darken-4"><strong>tbd</strong></span>
+                            </td>
+                            <td>
+                                <span class="purple-text text-darken-4"><strong>{{ asset.quantity }}</strong></span>
+                            </td>
+                            <td>
+                                <span class="purple-text text-darken-4"><strong>{{ asset.current_price }}</strong></span>
+                            </td>
+                            <td>
+                                <span class="purple-text text-darken-4"><strong>tbd</strong></span>
+                            </td>
+                            <td>
+                                <span class="purple-text text-darken-4"><strong>{{ asset.pnl }}</strong></span>
+                            </td>
+                            <td>
+                                <a href="{% url 'portfolio' portfolio.slug %}" title="View" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">visibility</i></a>
+                                <a href="{% url 'update' portfolio.slug %}" title="Edit" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">edit</i></a>
+                                <a href="{% url 'delete' portfolio.slug %}" title="Delete" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">delete</i></a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <a class="waves-effect waves-purple btn-small purple darken-4" href="{% url 'portfolios' %}">
+                    Go back to Portfolios List
+                    <i class="material-icons left">arrow_back</i>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
-
 {% endblock %}
