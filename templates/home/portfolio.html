@@ -58,9 +58,8 @@
                                 <span class="purple-text text-darken-4"><strong>{{ asset.pnl }}</strong></span>
                             </td>
                             <td>
-                                <a href="{% url 'portfolio' portfolio.slug %}" title="View" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">visibility</i></a>
-                                <a href="{% url 'update' portfolio.slug %}" title="Edit" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">edit</i></a>
-                                <a href="{% url 'delete' portfolio.slug %}" title="Delete" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">delete</i></a>
+                                <a href="{% url 'portfolio' portfolio.slug %}" title="Buy Crypto" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">add</i></a>
+                                <a href="{% url 'update' portfolio.slug %}" title="Sell Crypto" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">remove</i></a>
                             </td>
                         </tr>
                         {% empty %}
