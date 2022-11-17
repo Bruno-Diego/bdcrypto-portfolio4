@@ -1,14 +1,16 @@
 {% extends "home/base.html" %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 {% if messages %}
-    <div class="row">
-        <div class="col s12 m2 offset-m5">
-            {% for message in messages %}
-            <div {% if message.tags %} class="{{ message.tags }} toast rounded green lighten-3 green-text text-darken-4"{% endif %}>{{ message }}</div >
-            {% endfor %}
-        </div>
+<div class="row">
+    <div class="col s12 m2 offset-m5">
+        {% for message in messages %}
+        <div {% if message.tags %} class="{{ message.tags }} toast rounded green lighten-3 green-text text-darken-4"
+            {% endif %}>{{ message }}</div>
+        {% endfor %}
     </div>
+</div>
 {% endif %}
 <div class="row">
     <div class="col s12 m6 offset-m3 card card-content deep-purple darken-2 white-text">
@@ -58,14 +60,37 @@
                                 <span class="white-text"><strong>{{ asset.pnl }}</strong></span>
                             </td>
                             <td>
-                                <a href="{% url 'portfolio' portfolio.slug %}" title="Buy Crypto" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">add</i></a>
-                                <a href="{% url 'update' portfolio.slug %}" title="Sell Crypto" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">remove</i></a>
+                                <a href="#modalbuy" title="Buy Crypto"
+                                    class="btn-floating btn-small waves-effect waves-light purple"><i
+                                        class="material-icons">add</i></a>
+                                <a href="#modalsell" title="Sell Crypto"
+                                    class="btn-floating btn-small waves-effect waves-light purple"><i
+                                        class="material-icons">remove</i></a>
                             </td>
                         </tr>
                         {% empty %}
                         {% endfor %}
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <a class="waves-effect waves-purple btn-small purple darken-4 modal-trigger" href="#buy">
+                    BUY CRYPTOCURRENCY
+                    <i class="material-icons left">add</i>
+                </a>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="buy" class="modal">
+
+            <div class="modal-content s12 m6 deep-purple darken-2 black-text center">
+                <form method="post">
+                    {% csrf_token %}
+                    {{asset_form.as_p}}
+                    <button type="submit" class="btn waves-effect waves-light">Buy<i class="material-icons right">currency_bitcoin</i></button>
+                </form>
             </div>
         </div>
         <div class="row">

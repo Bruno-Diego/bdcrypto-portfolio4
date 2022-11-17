@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView, FormMixin
 from django.views.generic import ListView, DetailView, TemplateView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
@@ -12,6 +12,7 @@ from django.contrib.auth import login
 from django.contrib import messages
 
 from .models import Portfolio, Asset
+from .forms import AssetForm
 
 
 class RegisterPage(FormView):
@@ -102,7 +103,24 @@ class PortfolioDetail(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['assets'] = Asset.objects.all().filter(portfolio_name=context['portfolio'])
+        context['asset_form'] = AssetForm()
         return context
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Portfolio.objects.filter(user=self.request.user)
+        portfolio = get_object_or_404(queryset, slug=slug)
+        asset_form = AssetForm(data=request.POST)
+        if asset_form.is_valid():
+            asset_form.instance.portfolio_name = portfolio
+            asset_form.save()
+            messages.success(self.request, 'Asset added!')
+            return self.form_valid(asset_form)
+        else:
+            asset_form = AssetForm()
+    
+    def get_success_url(self):
+        slug=self.kwargs['slug']
+        return reverse_lazy('portfolio', kwargs={'slug': slug})
 
 
 class PortfolioDelete(LoginRequiredMixin, DeleteView):
