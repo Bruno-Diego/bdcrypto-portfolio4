@@ -95,10 +95,11 @@ class PortfolioUpdate(LoginRequiredMixin, UpdateView):
         return super(PortfolioUpdate, self).form_valid(form)
 
 
-class PortfolioDetail(LoginRequiredMixin, DetailView):
+class PortfolioDetail(LoginRequiredMixin, DetailView, CreateView):
     model = Portfolio
     context_object_name = 'portfolio'
     template_name = 'home/portfolio.html'
+    form_class = AssetForm
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
