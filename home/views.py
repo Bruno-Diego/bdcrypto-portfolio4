@@ -12,7 +12,7 @@ from django.contrib.auth import login
 from django.contrib import messages
 
 from .models import Portfolio, Asset
-from .forms import AssetForm
+from .forms import AssetForm, AssetUpdateForm
 
 
 class RegisterPage(FormView):
@@ -93,18 +93,19 @@ class PortfolioUpdate(LoginRequiredMixin, UpdateView):
         form.instance.slug = slugify(form['name'].value())
         messages.success(self.request, 'Portfolio updated!')
         return super(PortfolioUpdate, self).form_valid(form)
-
+    
 
 class PortfolioDetail(LoginRequiredMixin, DetailView, CreateView):
     model = Portfolio
     context_object_name = 'portfolio'
     template_name = 'home/portfolio.html'
     form_class = AssetForm
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['assets'] = Asset.objects.all().filter(portfolio_name=context['portfolio'])
         context['asset_form'] = AssetForm()
+        context['asset_update_form'] = AssetUpdateForm()
         return context
 
     def post(self, request, slug, *args, **kwargs):
@@ -118,7 +119,7 @@ class PortfolioDetail(LoginRequiredMixin, DetailView, CreateView):
             return self.form_valid(asset_form)
         else:
             asset_form = AssetForm()
-    
+   
     def get_success_url(self):
         slug=self.kwargs['slug']
         return reverse_lazy('portfolio', kwargs={'slug': slug})
@@ -128,6 +129,7 @@ class PortfolioDelete(LoginRequiredMixin, DeleteView):
     model = Portfolio
     context_object_name = 'portfolio'
     success_url = reverse_lazy('portfolios')
+
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Portfolio DELETED!')
         return super(PortfolioDelete, self).delete(request, *args, **kwargs)
@@ -136,3 +138,23 @@ class home_page(TemplateView):
     '''Function to display the home page'''
     template_name = 'home/index.html'
 
+class AssetUpdate(LoginRequiredMixin, UpdateView):
+    model = Asset
+    form_class = AssetUpdateForm
+    template_name = 'home/updateasset.html'
+
+    def get_success_url(self):
+        slug=self.kwargs['slug']
+        return reverse_lazy('portfolio', kwargs={'slug': slug})
+
+    # def post(self, request, slug, id, *args, **kwargs):
+    #     queryset = Asset.objects.filter(user=self.request.user)
+    #     portfolio = get_object_or_404(queryset, slug=slug)
+    #     asset = get_object_or_404(queryset, id=id)
+    #     asset_update_form = AssetUpdateForm(data=request.POST)
+    #     if asset_update_form.is_valid():
+    #         asset_update_form.save()
+    #         messages.success(self.request, 'Asset updated!')
+    #         return self.form_valid(asset_update_form)
+    #     else:
+    #         asset_update_form = AssetUpdateForm()

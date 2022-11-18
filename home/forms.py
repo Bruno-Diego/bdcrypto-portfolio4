@@ -7,3 +7,8 @@ class AssetForm(forms.ModelForm):
         model = Asset
         fields = ('__all__')
         exclude = ('portfolio_name',)
+
+class AssetUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Asset
+        fields = ('quantity',)

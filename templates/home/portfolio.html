@@ -39,7 +39,7 @@
                         {% for asset in assets %}
                         <tr>
                             <td>
-                                <span class="white-text"><strong>{{ asset.icon }}</strong></span>
+                                <span class="white-text"><strong>{{ asset.id }}</strong></span>
                             </td>
                             <td>
                                 <span class="white-text"><strong>{{ asset.symbol }}</strong></span>
@@ -60,11 +60,11 @@
                                 <span class="white-text"><strong>{{ asset.pnl }}</strong></span>
                             </td>
                             <td>
-                                <a href="#modalbuy" title="Buy Crypto"
-                                    class="btn-floating btn-small waves-effect waves-light purple"><i
+                                <a href="#" title="Buy Crypto"
+                                    class="btn-floating btn-small waves-effect waves-light purple modal-trigger"><i
                                         class="material-icons">add</i></a>
-                                <a href="#modalsell" title="Sell Crypto"
-                                    class="btn-floating btn-small waves-effect waves-light purple"><i
+                                <a href="#" title="Sell Crypto"
+                                    class="btn-floating btn-small waves-effect waves-light purple modal-trigger"><i
                                         class="material-icons">remove</i></a>
                             </td>
                         </tr>
@@ -82,13 +82,22 @@
                 </a>
             </div>
         </div>
-        <!-- Modal Structure -->
+        <!-- Modal Structure for create asset -->
         <div id="buy" class="modal">
-
             <div class="modal-content s12 m6 deep-purple darken-2 black-text center">
                 <form method="post">
                     {% csrf_token %}
                     {{asset_form.as_p}}
+                    <button type="submit" class="btn waves-effect waves-light">Buy<i class="material-icons right">currency_bitcoin</i></button>
+                </form>
+            </div>
+        </div>
+        <!-- Modal Structure for update asset -->
+        <div id="modalbuy" class="modal">
+            <div class="modal-content s12 m6 deep-purple darken-2 black-text center">
+                <form method="post">
+                    {% csrf_token %}
+                    {{asset_update_form.as_p}}
                     <button type="submit" class="btn waves-effect waves-light">Buy<i class="material-icons right">currency_bitcoin</i></button>
                 </form>
             </div>
