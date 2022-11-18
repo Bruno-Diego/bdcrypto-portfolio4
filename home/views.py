@@ -146,7 +146,12 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         slug=self.kwargs['slug']
         return reverse_lazy('portfolio', kwargs={'slug': slug})
-
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        queryset = Portfolio.objects.filter(user=self.request.user)
+        context['portfolio'] = get_object_or_404(queryset, name=context['asset'].portfolio_name)
+        return context
     # def post(self, request, slug, id, *args, **kwargs):
     #     queryset = Asset.objects.filter(user=self.request.user)
     #     portfolio = get_object_or_404(queryset, slug=slug)
