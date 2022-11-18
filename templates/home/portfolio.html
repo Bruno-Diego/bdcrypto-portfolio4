@@ -60,10 +60,10 @@
                                 <span class="white-text"><strong>{{ asset.pnl }}</strong></span>
                             </td>
                             <td>
-                                <a href="#" title="Buy Crypto"
+                                <a href="{% url 'assetupdate' portfolio.slug asset.id %}" title="Buy Crypto"
                                     class="btn-floating btn-small waves-effect waves-light purple modal-trigger"><i
                                         class="material-icons">add</i></a>
-                                <a href="#" title="Sell Crypto"
+                                <a href="{% url 'assetupdate' portfolio.slug asset.id %}" title="Sell Crypto"
                                     class="btn-floating btn-small waves-effect waves-light purple modal-trigger"><i
                                         class="material-icons">remove</i></a>
                             </td>
