@@ -9,6 +9,7 @@ class AssetForm(forms.ModelForm):
         exclude = ('portfolio_name',)
 
 class AssetUpdateForm(forms.ModelForm):
+    quantity = forms.DecimalField(initial=0)
     class Meta:
         model = Asset
         fields = ('quantity',)

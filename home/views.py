@@ -159,6 +159,9 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
         if resolve(self.request.path_info).url_name == 'buyasset':
             AssetUpdateForm.instance.quantity += self.get_object().quantity
         elif resolve(self.request.path_info).url_name == 'sellasset':
-            AssetUpdateForm.instance.quantity = self.get_object().quantity - AssetUpdateForm.instance.quantity
+            if self.get_object().quantity > AssetUpdateForm.instance.quantity:
+                AssetUpdateForm.instance.quantity = self.get_object().quantity - AssetUpdateForm.instance.quantity
+            else:
+                messages.error(self.request, 'You can only sell the amount you hold!')
         messages.success(self.request, 'Portfolio updated!')
         return super(AssetUpdate, self).form_valid(AssetUpdateForm)
