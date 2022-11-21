@@ -156,8 +156,9 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
         return context
 
     def form_valid(self, AssetUpdateForm):
-        # print(self.get_object().quantity)
-        # print(AssetUpdateForm.instance.quantity)
-        AssetUpdateForm.instance.quantity += self.get_object().quantity
+        if resolve(self.request.path_info).url_name == 'buyasset':
+            AssetUpdateForm.instance.quantity += self.get_object().quantity
+        elif resolve(self.request.path_info).url_name == 'sellasset':
+            AssetUpdateForm.instance.quantity = self.get_object().quantity - AssetUpdateForm.instance.quantity
         messages.success(self.request, 'Portfolio updated!')
         return super(AssetUpdate, self).form_valid(AssetUpdateForm)
