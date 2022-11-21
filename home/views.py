@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView, FormMixin
 from django.views.generic import ListView, DetailView, TemplateView
 from django.http import HttpResponse
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, resolve
 from django.template.defaultfilters import slugify
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -10,6 +10,8 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib import messages
+
+from decimal import Decimal
 
 from .models import Portfolio, Asset
 from .forms import AssetForm, AssetUpdateForm
@@ -142,7 +144,7 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
     model = Asset
     form_class = AssetUpdateForm
     template_name = 'home/updateasset.html'
-
+    
     def get_success_url(self):
         slug=self.kwargs['slug']
         return reverse_lazy('portfolio', kwargs={'slug': slug})
@@ -152,14 +154,10 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
         queryset = Portfolio.objects.filter(user=self.request.user)
         context['portfolio'] = get_object_or_404(queryset, name=context['asset'].portfolio_name)
         return context
-    # def post(self, request, slug, id, *args, **kwargs):
-    #     queryset = Asset.objects.filter(user=self.request.user)
-    #     portfolio = get_object_or_404(queryset, slug=slug)
-    #     asset = get_object_or_404(queryset, id=id)
-    #     asset_update_form = AssetUpdateForm(data=request.POST)
-    #     if asset_update_form.is_valid():
-    #         asset_update_form.save()
-    #         messages.success(self.request, 'Asset updated!')
-    #         return self.form_valid(asset_update_form)
-    #     else:
-    #         asset_update_form = AssetUpdateForm()
+
+    def form_valid(self, AssetUpdateForm):
+        # print(self.get_object().quantity)
+        # print(AssetUpdateForm.instance.quantity)
+        AssetUpdateForm.instance.quantity += self.get_object().quantity
+        messages.success(self.request, 'Portfolio updated!')
+        return super(AssetUpdate, self).form_valid(AssetUpdateForm)
