@@ -41,6 +41,7 @@ class Asset(models.Model):
 
     def __repr__(self):
         return self.symbol
-        
+
     def total_value(self):
         return round(self.quantity * Decimal(self.current_price), 3)
+        

@@ -223,3 +223,33 @@ def get_coin_details(symbol, coins):
             price = float((x['price']))
             icon = x['iconUrl']
     return (rank, price, icon)
+
+
+class AssetBuy(LoginRequiredMixin, CreateView):
+    model = Asset
+    context_object_name = 'asset'
+    template_name = 'home/createasset.html'
+    form_class = AssetForm
+
+    def form_valid(self, AssetForm):
+        queryset = Portfolio.objects.filter(user=self.request.user)
+        portfolio = get_object_or_404(queryset, slug=self.kwargs['slug'])
+        AssetForm.instance.portfolio_name = portfolio
+        AssetForm.instance.rank = get_coin_details(AssetForm.instance.symbol, coins)[0]
+        AssetForm.instance.icon = get_coin_details(AssetForm.instance.symbol, coins)[2]
+        AssetForm.instance.buy_price = get_coin_details(AssetForm.instance.symbol, coins)[1]
+        AssetForm.instance.current_price = get_coin_details(AssetForm.instance.symbol, coins)[1]
+        AssetForm.instance.usd_spent = AssetForm.instance.quantity * Decimal(AssetForm.instance.buy_price)
+        AssetForm.instance.usd_earned = 0
+        messages.success(self.request, 'Portfolio created!')
+        return super(AssetBuy, self).form_valid(AssetForm)
+
+    def get_success_url(self):
+        slug=self.kwargs['slug']
+        return reverse_lazy('portfolio', kwargs={'slug': slug})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        queryset = Portfolio.objects.filter(user=self.request.user)
+        context['portfolio'] = get_object_or_404(queryset, slug=self.kwargs['slug'])
+        return context

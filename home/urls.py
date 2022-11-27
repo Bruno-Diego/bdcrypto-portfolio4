@@ -16,5 +16,6 @@ urlpatterns = [
     path('update/<slug:slug>/<int:pk>/sell', views.AssetUpdate.as_view(), name='sellasset'),
     path('delete/<slug:slug>/<int:pk>/', views.AssetDelete.as_view(), name='assetdelete'),
     path('delete/<slug:slug>/', views.PortfolioDelete.as_view(), name='delete'),
+    path('createasset/<slug:slug>/', views.AssetBuy.as_view(), name='createasset'),
     path('', views.home_page.as_view(), name='home-page'),
 ]
