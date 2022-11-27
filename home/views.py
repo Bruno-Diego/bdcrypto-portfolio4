@@ -15,6 +15,9 @@ from decimal import Decimal
 
 from .models import Portfolio, Asset
 from .forms import AssetForm, AssetUpdateForm
+from .cryptoapi import update_coins
+
+coins = update_coins()
 
 
 class RegisterPage(FormView):
@@ -136,9 +139,11 @@ class PortfolioDelete(LoginRequiredMixin, DeleteView):
         messages.success(self.request, 'Portfolio DELETED!')
         return super(PortfolioDelete, self).delete(request, *args, **kwargs)
 
+
 class home_page(TemplateView):
     '''Function to display the home page'''
     template_name = 'home/index.html'
+
 
 class AssetUpdate(LoginRequiredMixin, UpdateView):
     model = Asset
@@ -155,13 +160,23 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
         context['portfolio'] = get_object_or_404(queryset, name=context['asset'].portfolio_name)
         return context
 
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['quantity'] = ''
+        return initial
+        
     def form_valid(self, AssetUpdateForm):
         if resolve(self.request.path_info).url_name == 'buyasset':
             AssetUpdateForm.instance.quantity += self.get_object().quantity
         elif resolve(self.request.path_info).url_name == 'sellasset':
-            if self.get_object().quantity > AssetUpdateForm.instance.quantity:
+            if AssetUpdateForm.instance.quantity > self.get_object().quantity:
+                messages.warning(self.request, 'You can only sell the amount you hold! Please insert another value below.')
+                return self.form_invalid(AssetUpdateForm)
+            elif AssetUpdateForm.instance.quantity == self.get_object().quantity:
+                slug=self.kwargs['slug']
+                deleteasset = AssetUpdateForm.save()
+                return redirect('assetdelete', slug=slug, pk=deleteasset.id)
+            else: 
                 AssetUpdateForm.instance.quantity = self.get_object().quantity - AssetUpdateForm.instance.quantity
-            else:
-                messages.error(self.request, 'You can only sell the amount you hold!')
         messages.success(self.request, 'Portfolio updated!')
         return super(AssetUpdate, self).form_valid(AssetUpdateForm)
