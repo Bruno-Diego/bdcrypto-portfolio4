@@ -193,6 +193,26 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
         return super(AssetUpdate, self).form_valid(AssetUpdateForm)
 
 
+class AssetDelete(LoginRequiredMixin, DeleteView):
+    model = Asset
+    context_object_name = 'asset'
+    success_url = reverse_lazy('portfolios')
+
+    def get_success_url(self):
+        slug=self.kwargs['slug']
+        return reverse_lazy('portfolio', kwargs={'slug': slug})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        queryset = Portfolio.objects.filter(user=self.request.user)
+        context['portfolio'] = get_object_or_404(queryset, name=context['asset'].portfolio_name)
+        return context
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'Asset DELETED!')
+        return super(AssetDelete, self).delete(request, *args, **kwargs)
+
+
 def get_coin_details(symbol, coins):
     """
     Will get the price of a coin
