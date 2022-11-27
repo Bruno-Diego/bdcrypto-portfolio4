@@ -151,9 +151,14 @@ class PortfolioDelete(LoginRequiredMixin, DeleteView):
         return super(PortfolioDelete, self).delete(request, *args, **kwargs)
 
 
-class home_page(TemplateView):
+class HomePage(TemplateView):
     '''Function to display the home page'''
     template_name = 'home/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HomePage, self).get_context_data(**kwargs)
+        context['assets'] = coins
+        return context
 
 
 class AssetUpdate(LoginRequiredMixin, UpdateView):
