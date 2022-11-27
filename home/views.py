@@ -100,31 +100,42 @@ class PortfolioUpdate(LoginRequiredMixin, UpdateView):
         return super(PortfolioUpdate, self).form_valid(form)
     
 
-class PortfolioDetail(LoginRequiredMixin, DetailView, CreateView):
+class PortfolioDetail(LoginRequiredMixin, DetailView):
     model = Portfolio
     context_object_name = 'portfolio'
     template_name = 'home/portfolio.html'
-    form_class = AssetForm
+    form_class = AssetUpdateForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        for asset in Asset.objects.all():
+            symbol_field = Asset._meta.get_field('symbol')
+            symbol_value = symbol_field.value_from_object(asset)
+            current_price_field = Asset._meta.get_field('current_price')
+            current_price_value = current_price_field.value_from_object(asset)
+            buy_price_field = Asset._meta.get_field('buy_price')
+            buy_price_value = buy_price_field.value_from_object(asset)
+            pnl_updated = float(current_price_value) - float(buy_price_value)
+            if float(current_price_value) > float(buy_price_value):
+                earnings = pnl_updated
+            Asset.objects.filter(id=asset.id).update(current_price=get_coin_details(symbol_value, coins)[1], pnl=pnl_updated, usd_earned=earnings)
         context['assets'] = Asset.objects.all().filter(portfolio_name=context['portfolio'])
-        context['asset_form'] = AssetForm()
+        context['cryptolist'] = update_coins()
         context['asset_update_form'] = AssetUpdateForm()
         return context
-
+    
     def post(self, request, slug, *args, **kwargs):
         queryset = Portfolio.objects.filter(user=self.request.user)
         portfolio = get_object_or_404(queryset, slug=slug)
-        asset_form = AssetForm(data=request.POST)
-        if asset_form.is_valid():
-            asset_form.instance.portfolio_name = portfolio
-            asset_form.save()
+        asset_update_form = AssetUpdateForm(data=request.POST)
+        if asset_update_form.is_valid():
+            asset_update_form.instance.portfolio_name = portfolio
+            asset_update_form.save()
             messages.success(self.request, 'Asset added!')
-            return self.form_valid(asset_form)
+            return self.form_valid(asset_update_form)
         else:
-            asset_form = AssetForm()
-   
+            asset_update_form = AssetForm()
+    
     def get_success_url(self):
         slug=self.kwargs['slug']
         return reverse_lazy('portfolio', kwargs={'slug': slug})
