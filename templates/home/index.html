@@ -39,6 +39,51 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col s12 offset-2">
+                <div class="card deep-purple darken-3">
+                    <div class="card-content white-text center">
+                        <h3>These are some CRYPTO that you can add to your portfolio:</h3>
+                    </div>
+                    <div class="card-content white-text">
+                        <table class="responsive-table highlight centered">
+                            <thead>
+                                <tr>
+                                    <th>Icon</th>
+                                    <th>Symbol</th>
+                                    <th>Name</th>
+                                    <th>Price ($)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for coin in assets|slice:"0:10" %}
+                                <tr>
+                                    <td>
+                                        <span class="white-text"><img src="{{ coin.iconUrl }}" alt="Icon representing the cryptocoin" width="40" height="40"></span>
+                                    </td>
+                                    <td>
+                                        <span class="white-text"><strong>{{ coin.symbol }}</strong></span>
+                                    </td>
+                                    <td>
+                                        <span class="white-text"><strong>{{ coin.name }}</strong></span>
+                                    </td>
+                                    <td>
+                                        <span class="white-text"><strong>US$ {{ coin.price }}</strong></span>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-action center">
+                        <a href="{% url 'login' %}"
+                            class="waves-effect waves-light btn-large pulse white purple-text text-darken-3"><i
+                                class="material-icons left">currency_bitcoin</i>Start INVESTING!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
