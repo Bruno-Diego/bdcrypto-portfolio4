@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+from decimal import Decimal
 
 
 class Portfolio(models.Model):
@@ -44,4 +45,3 @@ class Asset(models.Model):
 
     def total_value(self):
         return round(self.quantity * Decimal(self.current_price), 3)
-        
