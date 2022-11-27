@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // sidenav initialization
   let sidenav = document.querySelectorAll('.sidenav');
   M.Sidenav.init(sidenav);
+  // select elements initialization
+  let select = document.querySelectorAll('select');
+  M.FormSelect.init(select);
   //toast function
   function dismiss() {
     let toastElement = document.querySelector('.toast');
