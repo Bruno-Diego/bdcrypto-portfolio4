@@ -191,3 +191,15 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
                 AssetUpdateForm.instance.quantity = self.get_object().quantity - AssetUpdateForm.instance.quantity
         messages.success(self.request, 'Portfolio updated!')
         return super(AssetUpdate, self).form_valid(AssetUpdateForm)
+
+
+def get_coin_details(symbol, coins):
+    """
+    Will get the price of a coin
+    """
+    for x in coins:
+        if x['symbol'] == symbol:
+            rank = x['rank']
+            price = float((x['price']))
+            icon = x['iconUrl']
+    return (rank, price, icon)
