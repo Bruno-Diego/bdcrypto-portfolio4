@@ -18,6 +18,9 @@
             <div class="col s12 center center-align">
                 <h3><strong>{{portfolio}}</strong> portfolio: List of assets</h3>
             </div>
+            <div class="col s12 center center-align">
+                <h5>Refresh the page to update the current value of your assets</h5>
+            </div>
         </div>
         <div class="row">
             <div class="col s12">
@@ -27,7 +30,6 @@
                         <tr>
                             <th>Icon</th>
                             <th>Symbol</th>
-                            <th>Name</th>
                             <th>Quantity</th>
                             <th>Price ($)</th>
                             <th>Total Value</th>
@@ -39,22 +41,19 @@
                         {% for asset in assets %}
                         <tr>
                             <td>
-                                <span class="white-text"><strong>{{ asset.id }}</strong></span>
+                                <span class="white-text"><img src="{{ asset.icon }}" alt="Icon representing the cryptocoin" width="40" height="40"></span>
                             </td>
                             <td>
                                 <span class="white-text"><strong>{{ asset.symbol }}</strong></span>
                             </td>
                             <td>
-                                <span class="white-text"><strong>tbd</strong></span>
-                            </td>
-                            <td>
                                 <span class="white-text"><strong>{{ asset.quantity }}</strong></span>
                             </td>
                             <td>
-                                <span class="white-text"><strong>{{ asset.current_price }}</strong></span>
+                                <span class="white-text"><strong>US$ {{ asset.current_price }}</strong></span>
                             </td>
                             <td>
-                                <span class="white-text"><strong>tbd</strong></span>
+                                <span class="white-text"><strong>{{ asset.total_value }}</strong></span>
                             </td>
                             <td>
                                 <span class="white-text"><strong>{{ asset.pnl }}</strong></span>
@@ -76,30 +75,10 @@
         </div>
         <div class="row">
             <div class="col s12 center">
-                <a class="waves-effect waves-purple btn-small purple darken-4 modal-trigger" href="#buy">
+                <a class="waves-effect waves-purple btn-small purple darken-4 modal-trigger" href="{% url 'createasset' portfolio.slug %}">
                     BUY CRYPTOCURRENCY
                     <i class="material-icons left">add</i>
                 </a>
-            </div>
-        </div>
-        <!-- Modal Structure for create asset -->
-        <div id="buy" class="modal">
-            <div class="modal-content s12 m6 deep-purple darken-2 black-text center">
-                <form method="post">
-                    {% csrf_token %}
-                    {{asset_form.as_p}}
-                    <button type="submit" class="btn waves-effect waves-light">Buy<i class="material-icons right">currency_bitcoin</i></button>
-                </form>
-            </div>
-        </div>
-        <!-- Modal Structure for update asset -->
-        <div id="modalbuy" class="modal">
-            <div class="modal-content s12 m6 deep-purple darken-2 black-text center">
-                <form method="post">
-                    {% csrf_token %}
-                    {{asset_update_form.as_p}}
-                    <button type="submit" class="btn waves-effect waves-light">Buy<i class="material-icons right">currency_bitcoin</i></button>
-                </form>
             </div>
         </div>
         <div class="row">
