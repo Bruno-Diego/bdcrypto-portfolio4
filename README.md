@@ -69,7 +69,7 @@ The target users are crypto enthusiasts of all ages looking for an application t
 
 ### EPIC | Assets CRUD
 
-- As a **Website User** I can Add assets to my Portfolio so that I can have it on my holdings.
+- As a **Website User** I can create/buy, read/view, update/sell and delete assets on my Portfolio so that I can have it on my holdings.
 
 ## Features
 
