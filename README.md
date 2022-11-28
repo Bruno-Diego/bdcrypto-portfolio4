@@ -56,6 +56,7 @@ The target users are crypto enthusiasts of all ages looking for an application t
 
 - As a **Website User**, I can intuitively navigate around the site so that I can find the content I'm looking for.
 - As a **Website User**, I can understand the purpose of the website so that I decide if it meets my needs.
+- As a **Website User**, I can see all the valid coins available and their prices so that I decide where to invest.
 
 ### EPIC | User authentication
 
