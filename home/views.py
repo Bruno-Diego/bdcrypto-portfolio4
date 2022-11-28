@@ -120,6 +120,15 @@ class PortfolioDetail(LoginRequiredMixin, DetailView):
                 earnings = pnl_updated
             Asset.objects.filter(id=asset.id).update(current_price=get_coin_details(symbol_value, coins)[1], pnl=pnl_updated, usd_earned=earnings)
         context['assets'] = Asset.objects.all().filter(portfolio_name=context['portfolio'])
+        portfolio_total = 0
+        for asset in context['assets']:
+            quantity_field = Asset._meta.get_field('quantity')
+            quantity_value = quantity_field.value_from_object(asset)
+            current_price_field = Asset._meta.get_field('current_price')
+            current_price_value = current_price_field.value_from_object(asset)
+            coin_total = round(quantity_value * Decimal(current_price_value), 3)
+            portfolio_total += coin_total
+        context['portfolio_total'] = portfolio_total
         context['cryptolist'] = update_coins()
         context['asset_update_form'] = AssetUpdateForm()
         return context

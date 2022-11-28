@@ -29,7 +29,6 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Total Value</th>
                     <th>Details</th>
                 </tr>
             </thead>
@@ -38,9 +37,6 @@
                 <tr>
                     <td>
                         <span class="purple-text text-darken-4"><strong>{{ portfolio.name }}</strong></span>
-                    </td>
-                    <td>
-                        <span>$</span>
                     </td>
                     <td>
                         <a href="{% url 'portfolio' portfolio.slug %}" title="View" class="btn-floating btn-small waves-effect waves-light purple"><i class="material-icons">visibility</i></a>
