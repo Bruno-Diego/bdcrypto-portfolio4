@@ -65,7 +65,7 @@ The target users are crypto enthusiasts of all ages looking for an application t
 
 ### EPIC | Portfolio CRUD
 
-- As a **Website User**, I can create a Portfolio of assets so that I can manage and track my crypto holdings.
+- As a **Website User**, I can create/edit and delete Portfolios of assets so that I can manage and track my crypto holdings.
 
 ### EPIC | Assets CRUD
 
