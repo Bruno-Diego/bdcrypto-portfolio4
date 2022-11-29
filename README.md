@@ -243,9 +243,12 @@ Deploying the project using Heroku:
    - Login to [Heroku](https://dashboard.heroku.com/apps) and Create a New App
    - Give the App a name, it must be unique, and select a region closest to you
    - Click on 'Create App', this will take you to a page where you can deploy your project
-   - Click on the 'Resources' tab and search for 'Heroku Postgres' as this is the add-on you will use for the deployed database
    - Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment. 
-   - Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py as a root level file.
+   - On ElephantSQL.com website, create an account by clicking on “Get a managed database today”, select “Try now for FREE” in the TINY TURTLE database plan, select “Log in with GitHub” and authorize ElephantSQL with your selected GitHub account, in the Create new team form: add a team name, read and agree to the Terms of Service, select Yes for GDPR, provide the email address and click “Create Team”.
+   - Access your dashboard ElephantSQL, click “Create New Instance”, set up your plan: give your plan a Name, select the Tiny Turtle (Free) plan, you can leave the Tags field blank; Select “Select Region” and choose a data center near you, then click “Review”, check your details are correct and then click “Create instance”.
+   - Return to the ElephantSQL dashboard and click on the database instance name for this project, then click "Details". 
+   - Get your ElephantSQL database URL.
+   - Back on Heroku, Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py as a root level file.
      - The env.py files is where the projects secret environment variables are stored. This file is then added to a gitnore file so it isn't stored publicly within the projects repository.
    - Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on GitPod.
    - Within the [settings.py](settings.py) file you need to import several libraries:
@@ -283,7 +286,7 @@ MEDIA_URL = '/media/'
 ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
 ```
 
-   - Finally, to complete the first deployment set up of the skeleton app, create a Procfile so that Heroku knows how to run the project. Within this file add the following: web: gunicorn APP-NAME.wsgi Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a standard that allows Python services to integrate with web servers.
+   - Finally, to complete the first deployment set up of the app, create a Procfile so that Heroku knows how to run the project. Within this file add the following: web: gunicorn APP-NAME.wsgi Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a standard that allows Python services to integrate with web servers.
    - Now, go to the 'Deploy' Tab on Heroku. Find the 'Deployment Method' section and choose GitHub. Connect to your GitHub account and find the repo you want to deploy. 
    - Scroll down to the Automatic and Manual Deploys sections. Click 'Deploy Branch' in the Manual Deploy section and waited as Heroku installed all dependencies and deployed the code.
    - Once the project is finnished deploying, click 'Open App' to see the newly deployed project.
@@ -291,5 +294,7 @@ ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
    - Remove staticcollect=1 from congifvars within Heroku
    - Ensure DEBUG is set to false in settings.py file or:
    - Set DEBUG to development with: development = os.environ.get('DEVELOPMENT', False) above it.
+
+## Via Gitpod
 
 ## Credits
