@@ -172,7 +172,24 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 
 ## Code validation
 
+
+
+
+
 ## Test cases
+
+
+- As a **Website User**, I can intuitively navigate around the site so that I can find the content I'm looking for.
+- As a **Website User**, I can understand the purpose of the website so that I decide if it meets my needs.
+- As a **Website User**, I can see all the valid coins available and their prices so that I decide where to invest.
+
+
+- As a **Website User** I can register an account so that I can create a portfolio to add/delete crypto assets.
+- As a **Website User** I can Sign in and Sign out to my account so that I keep my account secure.
+
+- As a **Website User**, I can create/edit and delete Portfolios of assets so that I can manage and track my crypto holdings.
+
+- As a **Website User** I can create/buy, read/view, update/sell and delete assets on my Portfolio so that I can have it on my holdings.
 
 ## Fixed bugs
 
