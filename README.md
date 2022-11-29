@@ -75,6 +75,12 @@ The target users are crypto enthusiasts of all ages looking for an application t
 
 ## Future features
 
+- For the future deployments to the website, I would like to implement a full dashboard with graphics and analitics for the user to track the performance of his portfolio.
+
+- I also would like to implement a back-end python job to store the data retrieved from the api before sending it to the user.
+
+- Another implementation for the future will be the possibility to connect the portfolio to a crypto wallet.
+
 ## Typography and color scheme
 
 - For the text, the main font used on the website was [Open Sans](https://fonts.google.com/specimen/Open+Sans) from [Google Fonts](https://fonts.google.com/). `Open Sans was designed with an upright stress, open forms and a neutral, yet friendly appearance. It was optimized for print, web, and mobile interfaces, and has excellent legibility characteristics in its letterforms.` [Font.](https://fonts.google.com/specimen/Open+Sans/about)
