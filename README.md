@@ -170,9 +170,6 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
   - [Grammarly](https://www.grammarly.com/)
     - Used to fix the grammar errors across the project.
 
-
-
- 
 ## Code validation
 
 ## Test cases
@@ -197,6 +194,10 @@ class home_page(TemplateView):
 - Also, the class method `.as_view()` was added to the home_page url in urls.py.
 
 ## Supported screens and browsers
+
+- The website is fully responsive and can be accessed on smartphones (width of 600px and smaller), tablets (width of 820px and smaller) and monitors of any size.
+
+- The website was tested and is supported on the browsers Google Chrome, Mozilla Firefox, Microsoft Edge, Opera and Brave.
 
 ## Deployment
 
