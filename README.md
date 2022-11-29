@@ -73,6 +73,40 @@ The target users are crypto enthusiasts of all ages looking for an application t
 
 ## Features
 
+- These are the features included on this release:
+
+### Navbar
+
+- The navbar contains an elusive title and a menu with links to the home and registration or login page.
+
+### Call-to-action card
+
+- The first card instigates the user to take action on the website and have a call-to-action button with a pulse effect to draw the user´s attention.
+
+### Website information
+
+- The following cards have usefull information about the website´s content. 
+
+### Cryptocurrencies
+
+- Below the cards, the website displays a list of the most known cryptocurrencies that the user can add to his portfolio.
+
+### Regitration
+
+- On the registration page, the user can register himself to create new portfolos and add assets to them.
+
+### Login page
+
+- On the login page the registered user can login and manage his portfolios and assets.
+
+### Portfolios
+
+- On the portfolios page, the user can create, read/view, update and delete portfolios linked to his account.
+
+### Assets
+
+- The user can use the assets list page to buy (create) new assets, read/view his assets, buy more quantity (update) existing assets, and sell partially (update) or totally (delete) his existing assets.
+
 ## Future features
 
 - For the future deployments to the website, I would like to implement a full dashboard with graphics and analitics for the user to track the performance of his portfolio.
