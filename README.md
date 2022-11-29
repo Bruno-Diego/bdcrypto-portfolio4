@@ -77,6 +77,12 @@ The target users are crypto enthusiasts of all ages looking for an application t
 
 ## Typography and color scheme
 
+- For the text, the main font used on the website was [Open Sans](https://fonts.google.com/specimen/Open+Sans) from [Google Fonts](https://fonts.google.com/). `Open Sans was designed with an upright stress, open forms and a neutral, yet friendly appearance. It was optimized for print, web, and mobile interfaces, and has excellent legibility characteristics in its letterforms.` [Font.](https://fonts.google.com/specimen/Open+Sans/about)
+
+- For the website´s colors I used a purple pallette based on the [materialize colors](https://materializecss.com/color.html):
+
+![](./docs/readme/colors.png)
+
 ## Design
 
 ### Wireframes
