@@ -205,18 +205,27 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 4. As a **Website User** I can register an account so that I can create a portfolio to add/delete crypto assets.
     - The user click in a call-to-action button in the home page and is redirected to the login page.
     - The user click on "Register here!" link at the bottom of the login page.
-    - The user is displayed with a registration form with Username, Password and Confirm Password fields.
+    - The website displays a registration form with Username, Password and Confirm Password fields.
     - The user fill the form and click Register.
     - The user is logged and can see a message in a baloon confirming the registration.
     - The user can see the portfolio list page.
 
     ![](./docs/readme/portfolioslist.png)
 
-- As a **Website User** I can Sign in and Sign out to my account so that I keep my account secure.
+5. As a **Website User** I can Sign in and Sign out to my account so that I keep my account secure.
+    - The user click in a call-to-action button in the home page or the link "Login" in the navigation bar.
+    - The website displays a form with username and password field.
+    - The user fill the form and click "Login" and is re-directed to the portfolios list.
+    - The navigation bar displays a "Logout" link.
+    - The user click "Logout" and is re-directed to the login page.
 
-- As a **Website User**, I can create/edit and delete Portfolios of assets so that I can manage and track my crypto holdings.
+    ![](./docs/readme/loginpage.png)
 
-- As a **Website User** I can create/buy, read/view, update/sell and delete assets on my Portfolio so that I can have it on my holdings.
+6. As a **Website User**, I can create/edit and delete Portfolios of assets so that I can manage and track my crypto holdings.
+    - 
+
+7. As a **Website User** I can create/buy, read/view, update/sell and delete assets on my Portfolio so that I can have it on my holdings.
+    - 
 
 ## Fixed bugs
 
