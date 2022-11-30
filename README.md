@@ -179,12 +179,39 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 ## Test cases
 
 
-- As a **Website User**, I can intuitively navigate around the site so that I can find the content I'm looking for.
-- As a **Website User**, I can understand the purpose of the website so that I decide if it meets my needs.
-- As a **Website User**, I can see all the valid coins available and their prices so that I decide where to invest.
+1. As a **Website User**, I can intuitively navigate around the site so that I can find the content I'm looking for.
+    - As soon as you enter the page you can easily see the navigation bar with title on the top left of the page, which is elusive to the website subject and is a link to refresh the home page.
+    - On the left side of the navigation bar the user can see three links to home, to portfolios and to login page.
+    - The user can click the Login link to be redirected to the login page and log in.
+    - The user can click the Portfolios link to be redirected to his portfolios or the login page if he's not logged in.
+    - The user can click the Home link or website's title "BDCrypto" to refresh or be redirected to the home page.
 
+    ![](./docs/readme/navbar.png)
 
-- As a **Website User** I can register an account so that I can create a portfolio to add/delete crypto assets.
+2. As a **Website User**, I can understand the purpose of the website so that I decide if it meets my needs.
+    - The user can see at the home page a welcome card with a summary of the website's subject and a call-to-action button with a pulse effect.
+    - The user click the call-to-action button and is redirected to the login page to log in or register himself.
+    - Below the welcome block, the user can see blocks of information regarding terms related to the blockchain.
+
+    ![](./docs/readme/calltoaction.png)
+    ![](./docs/readme/infoblocks.png)
+
+3. As a **Website User**, I can see all the valid coins available and their prices so that I decide where to invest.
+    - The user can see on the main page a list with most available coins and their details.
+    - At the end of the list, the user can see click the call-to-action button and is redirected to the login page to log in or register himself.
+
+    ![](./docs/readme/availablecrypto.png)
+
+4. As a **Website User** I can register an account so that I can create a portfolio to add/delete crypto assets.
+    - The user click in a call-to-action button in the home page and is redirected to the login page.
+    - The user click on "Register here!" link at the bottom of the login page.
+    - The user is displayed with a registration form with Username, Password and Confirm Password fields.
+    - The user fill the form and click Register.
+    - The user is logged and can see a message in a baloon confirming the registration.
+    - The user can see the portfolio list page.
+
+    ![](./docs/readme/portfolioslist.png)
+
 - As a **Website User** I can Sign in and Sign out to my account so that I keep my account secure.
 
 - As a **Website User**, I can create/edit and delete Portfolios of assets so that I can manage and track my crypto holdings.
