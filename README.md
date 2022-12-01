@@ -182,6 +182,14 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
   - No errors were found on the website when using [JSHint Validator](https://jshint.com/install/).
     ![](./assets/docs/jshint.png)
 
+- Python
+  - No syntax errors detected on python code accordingly to [Python syntax checker](https://extendsclass.com/python-tester.html)
+  ![](./docs/readme/python-tester.png)
+
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+  - Lighthouse is a feature of Google Chrome developer tools and is used to assess the performance of the website and its features. I achieved a  good performance, assessibility, best practises and SEO scores, as you can see on this [report](./docs/readme/lighthousesummary.pdf).
+    ![](./docs/readme/lighthouse.png)
+
 - [Color Contrast Accessibility Validator](https://color.a11y.com/)
   - Allowed me to test the colour contrast of my webpage.
     ![](./assets/docs/contrast.png)
