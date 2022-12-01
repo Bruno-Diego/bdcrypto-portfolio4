@@ -172,6 +172,11 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 
 ## Code validation
 
+- HTML
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbdcrypto-portfolio4.herokuapp.com%2F).
+
+- CSS
+  - No errors were found on the website when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fbdcrypto-portfolio4.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en).
 
 - JSHint
   - No errors were found on the website when using [JSHint Validator](https://jshint.com/install/).
