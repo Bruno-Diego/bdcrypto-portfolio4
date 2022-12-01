@@ -222,10 +222,41 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
     ![](./docs/readme/loginpage.png)
 
 6. As a **Website User**, I can create/edit and delete Portfolios of assets so that I can manage and track my crypto holdings.
-    - 
+    - The user log in to the page and is directed to the portfolios list.
+    - The user click on the button "Create a new portfolio" and is directed to a form in the Create Portfolio page.
+    - The user type a name for his portfolio and click on Submit button.
+    - The user is redirected to the portfolios list page and a message is displayed confirming the portfolio was created.
+    - The portfolios list page displays all the portfolios with the buttons view, edit and delete.
+    - To update the portfolio's name, the user clicks on the edit button and will be directed to a form to update the portfolio's name.
+    - After choose a new name for his portfolio and click on Submit button. The user is redirected back to the portfolios list page and a message is displayed confirming the portfolio was updated.
+    - To read the portfolio, the user clicks on the view button and will be directed to the assets page with the list of assets related to that portfolio.
+    - To delete the portfolio, the user clicks on the delete button and will be directed to a confirmation page to confirm the user wants to delete that portfolio.
+
+    ![](./docs/readme/portfolioslist.png)
+
+    ![](./docs/readme/updateportfolio.png)
 
 7. As a **Website User** I can create/buy, read/view, update/sell and delete assets on my Portfolio so that I can have it on my holdings.
-    - 
+    - The user log in to the page and is directed to the portfolios list.
+    - The user click on view button on the portfolio he wants to create an asset and will be directed to the assets page with the list of assets related to that portfolio.
+    - To add a new asset to the portfolio, the user click on "Buy Cryptocurrency" and is directed to a form in the create asset page.
+    - The user select the cryptocurrency from a dropdown list and the quantity desired, then click submit. The user is redirected back to the assets list and view a message confirming the asset was added to the portfolio.
+    - The assets list will display the crypto that was added with the fields Icon,	Symbol,	Quantity,	Price, Total, Value,	PnL and Actions with the buttons buy and sell.
+    - The buy and sell buttons allow the user to update the asset.
+    - To buy more of the same asset, the user clicks on "buy" button and will be directed to a form with the quantity field. The user insert the desired quantity that will be added to the total quantity of that asset.
+    - The user click on the submit button and will be redirected back to the assets list and a confirmation message will be displayed.
+    - To sell any quantity of the asset asset, the user clicks on "sell" button and will be directed to a form with the quantity field. The user insert the desired quantity that will be removed from the total quantity of that asset.
+    - The user input a quantity greater than the full amount and click sybmit, an error message is displayed saying he can only sell the amount he holds.
+    - The user click on the submit button and will be redirected back to the assets list and a confirmation message will be displayed.
+    - To delete the asset, The user clicks on "sell" button and will be directed to a form with the quantity field. The user insert the total quantity that hhe holds on that asset. The user will be directed to the confirmation page to confirm he wants to sell the full amount and delete that asset.
+
+    ![](./docs/readme/listofassets.png)
+
+    ![](./docs/readme/createasset.png)
+
+    ![](./docs/readme/update-buymore.png)
+
+    ![](./docs/readme/update-sell.png)
 
 ## Fixed bugs
 
