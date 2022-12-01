@@ -173,6 +173,13 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 ## Code validation
 
 
+- JSHint
+  - No errors were found on the website when using [JSHint Validator](https://jshint.com/install/).
+    ![](./assets/docs/jshint.png)
+
+- [Color Contrast Accessibility Validator](https://color.a11y.com/)
+  - Allowed me to test the colour contrast of my webpage.
+    ![](./assets/docs/contrast.png)
 
 
 
