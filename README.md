@@ -167,10 +167,10 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
     - Used to fix the grammar errors across the project.
   - [Django](https://www.djangoproject.com/)
     - Used as Python-based free and open-source web framework that follows the model–template–views architectural pattern to develop the basic back-end of the project.
-  - [Grammarly](https://www.grammarly.com/)
-    - Used to fix the grammar errors across the project.
-  - [Grammarly](https://www.grammarly.com/)
-    - Used to fix the grammar errors across the project.
+  - [SmartDraw](https://www.smartdraw.com/)
+    - Used to make the ERD diagram for the project.
+  - [Balsamiq Wireframes](https://balsamiq.com/)
+    - Used to create the wireframes for the project.
 
 ## Code validation
 
