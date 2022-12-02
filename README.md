@@ -402,6 +402,15 @@ ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
    - Ensure DEBUG is set to false in settings.py file or:
    - Set DEBUG to development with: development = os.environ.get('DEVELOPMENT', False) above it.
 
-## Via Gitpod
-
 ## Credits
+
+- Throughout the process of building this website, I have used various sources online to help me fix bugs & tackle problems, in addition to various modules to build the functionality of this website:
+  - The text for the info cards in the homepage taken from  [Ethereum website](https://ethereum.org/en/web3/) and [Wikipedia](https://en.wikipedia.org/wiki/Blockchain).
+  - The icons and styles were taken from [Materialize](https://materializecss.com/).
+  - The Django code was inspired by the Code Institute lessons and by the tutorial found on the [Denis Ivy](https://www.youtube.com/@DennisIvy) YouTube Channel. [Repository here.](https://github.com/divanov11/Django-To-Do-list-with-user-authentication)
+
+---
+## Acknowledgements
+
+I would like to thank my course mentor Rohit Sharma for his support and guidance throughout the project and our Code Institute Cohort Facilitator Kasia Bogucka for their support & feedback.
+---
