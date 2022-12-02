@@ -1,5 +1,7 @@
 # BDCrypto Portfolios Website
 
+![](./docs/readme/responsive.png)
+
 [Access the BDCrypto Portfolios Website here](https://bdcrypto-portfolio4.herokuapp.com/)(Ctrl + Click to open on a new tab)
 
 ## Table of Contents
