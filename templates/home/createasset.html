@@ -17,7 +17,7 @@
             <h3>Buy an asset to add to your portfolio!</h3>
         </div>
         <div class="row">
-            <form class="col s12 m6 offset-m3 center-align" method="POST">
+            <form class="col s12 m8 offset-m2 center-align" method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
                 <input class="waves-effect waves-purple btn-small white" type="submit" value="submit">
