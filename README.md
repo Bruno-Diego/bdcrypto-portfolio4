@@ -303,7 +303,30 @@ class home_page(TemplateView):
 
 - The website is fully responsive and can be accessed on smartphones (width of 600px and smaller), tablets (width of 820px and smaller) and monitors of any size.
 
+    * Small screens:
+    
+      ![](./docs/readme/small1.png)
+
+      ![](./docs/readme/small2.png)
+
+    ---
+    * Medium screens:
+    
+      ![](./docs/readme/med1.png)
+
+      ![](./docs/readme/med2.png)
+      
+      ![](./docs/readme/med3.png)
+
+    ---
+    * Large screens:
+    
+      ![](./docs/readme/large.png)
+
+
 - The website was tested and is supported on the browsers Google Chrome, Mozilla Firefox, Microsoft Edge, Opera and Brave.
+
+    ![](./docs/readme/browsers.png)
 
 ## Deployment
 
