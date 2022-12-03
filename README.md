@@ -492,4 +492,5 @@ ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
 ## Acknowledgements
 
 I would like to thank my course mentor Rohit Sharma for his support and guidance throughout the project and our Code Institute Cohort Facilitator Kasia Bogucka for their support & feedback.
+
 ---
