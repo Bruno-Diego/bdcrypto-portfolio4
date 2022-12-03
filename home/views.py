@@ -101,6 +101,9 @@ class PortfolioUpdate(LoginRequiredMixin, UpdateView):
     
 
 class PortfolioDetail(LoginRequiredMixin, DetailView):
+    '''
+    View for the details of the portfolio
+    '''
     model = Portfolio
     context_object_name = 'portfolio'
     template_name = 'home/portfolio.html'
@@ -151,6 +154,9 @@ class PortfolioDetail(LoginRequiredMixin, DetailView):
 
 
 class PortfolioDelete(LoginRequiredMixin, DeleteView):
+    '''
+    View for the delete portfolio action
+    '''
     model = Portfolio
     context_object_name = 'portfolio'
     success_url = reverse_lazy('portfolios')
@@ -171,6 +177,7 @@ class HomePage(TemplateView):
 
 
 class AssetUpdate(LoginRequiredMixin, UpdateView):
+    ''' View for update asset action '''
     model = Asset
     form_class = AssetUpdateForm
     template_name = 'home/updateasset.html'
@@ -208,6 +215,9 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
 
 
 class AssetDelete(LoginRequiredMixin, DeleteView):
+    '''
+    View for the delete asset action
+    '''
     model = Asset
     context_object_name = 'asset'
     success_url = reverse_lazy('portfolios')
@@ -240,6 +250,7 @@ def get_coin_details(symbol, coins):
 
 
 class AssetBuy(LoginRequiredMixin, CreateView):
+    ''' View for the buy asset action '''
     model = Asset
     context_object_name = 'asset'
     template_name = 'home/createasset.html'

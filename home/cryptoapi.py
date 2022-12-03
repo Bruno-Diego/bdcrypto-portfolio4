@@ -42,3 +42,4 @@ def update_coins():
             return coins_list
         except (ConnectionError, HTTPError, Timeout, TooManyRedirects) as e:
             print(e)
+            

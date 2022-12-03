@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
 
 {% block content %}
+<!-- List of portfolios -->
 {% if messages %}
     <div class="row">
         <div class="col s12 m2 offset-m5">
@@ -10,6 +11,7 @@
         </div>
     </div>
 {% endif %}
+<!-- Title -->
 <div class="row">
     <div class="col s12 m12 center">
         <h1 class="purple-text text-darken-4">Welcome back {{request.user}}!</h1>

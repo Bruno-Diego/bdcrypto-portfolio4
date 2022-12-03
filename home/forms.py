@@ -11,6 +11,9 @@ for coin in coins_list:
 
 
 class AssetForm(forms.ModelForm):
+    '''
+    Model for the Create asset form
+    '''
     class Meta:
         model = Asset
         fields = ('symbol', 'quantity')
@@ -21,6 +24,9 @@ class AssetForm(forms.ModelForm):
 
 
 class AssetUpdateForm(forms.ModelForm):
+    '''
+    Model for the Update asset form
+    '''
     class Meta:
         model = Asset
         fields = ('quantity',)
