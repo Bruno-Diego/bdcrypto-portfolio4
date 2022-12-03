@@ -119,6 +119,7 @@ class PortfolioDetail(LoginRequiredMixin, DetailView):
             buy_price_field = Asset._meta.get_field('buy_price')
             buy_price_value = buy_price_field.value_from_object(asset)
             pnl_updated = float(current_price_value) - float(buy_price_value)
+            earnings = 0
             if float(current_price_value) > float(buy_price_value):
                 earnings = pnl_updated
             Asset.objects.filter(id=asset.id).update(current_price=get_coin_details(symbol_value, coins)[1], pnl=pnl_updated, usd_earned=earnings)
