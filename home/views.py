@@ -255,7 +255,7 @@ class AssetBuy(LoginRequiredMixin, CreateView):
         AssetForm.instance.current_price = get_coin_details(AssetForm.instance.symbol, coins)[1]
         AssetForm.instance.usd_spent = AssetForm.instance.quantity * Decimal(AssetForm.instance.buy_price)
         AssetForm.instance.usd_earned = 0
-        messages.success(self.request, 'Portfolio created!')
+        messages.success(self.request, 'Asset added to your portfolio!')
         return super(AssetBuy, self).form_valid(AssetForm)
 
     def get_success_url(self):

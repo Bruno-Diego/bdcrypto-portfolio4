@@ -215,11 +215,14 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 
 2. As a **Website User**, I can understand the purpose of the website so that I decide if it meets my needs.
     - The user can see at the home page a welcome card with a summary of the website's subject and a call-to-action button with a pulse effect.
+
+      ![](./docs/readme/calltoaction.png)
+
     - The user click the call-to-action button and is redirected to the login page to log in or register himself.
+
     - Below the welcome block, the user can see blocks of information regarding terms related to the blockchain.
 
-    ![](./docs/readme/calltoaction.png)
-    ![](./docs/readme/infoblocks.png)
+      ![](./docs/readme/infoblocks.png)
 
 3. As a **Website User**, I can see all the valid coins available and their prices so that I decide where to invest.
     - The user can see on the main page a list with most available coins and their details.
