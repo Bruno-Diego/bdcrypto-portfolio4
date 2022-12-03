@@ -211,7 +211,7 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
     - The user can click the Portfolios link to be redirected to his portfolios or the login page if he's not logged in.
     - The user can click the Home link or website's title "BDCrypto" to refresh or be redirected to the home page.
 
-    ![](./docs/readme/navbar.png)
+      ![](./docs/readme/navbar.png)
 
 2. As a **Website User**, I can understand the purpose of the website so that I decide if it meets my needs.
     - The user can see at the home page a welcome card with a summary of the website's subject and a call-to-action button with a pulse effect.
@@ -228,63 +228,113 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
     - The user can see on the main page a list with most available coins and their details.
     - At the end of the list, the user can see click the call-to-action button and is redirected to the login page to log in or register himself.
 
-    ![](./docs/readme/availablecrypto.png)
+      ![](./docs/readme/availablecrypto.png)
 
 4. As a **Website User** I can register an account so that I can create a portfolio to add/delete crypto assets.
     - The user click in a call-to-action button in the home page and is redirected to the login page.
     - The user click on "Register here!" link at the bottom of the login page.
+
+      ![](./docs/readme/reghere.png)
+
     - The website displays a registration form with Username, Password and Confirm Password fields.
+
+      ![](./docs/readme/register.png)
+
     - The user fill the form and click Register.
     - The user is logged and can see a message in a baloon confirming the registration.
+
+      ![](./docs/readme/registeredandlogged.png)
+
     - The user can see the portfolio list page.
 
-    ![](./docs/readme/portfolioslist.png)
+      ![](./docs/readme/portfolioslist.png)
 
 5. As a **Website User** I can Sign in and Sign out to my account so that I keep my account secure.
     - The user click in a call-to-action button in the home page or the link "Login" in the navigation bar.
     - The website displays a form with username and password field.
     - The user fill the form and click "Login" and is re-directed to the portfolios list.
+    - The user can see a message in a baloon confirming he is logged in.
+
+      ![](./docs/readme/loggedin.png)
+      
     - The navigation bar displays a "Logout" link.
+
+      ![](./docs/readme/logoutbtn.png)
+
     - The user click "Logout" and is re-directed to the login page.
 
-    ![](./docs/readme/loginpage.png)
+      ![](./docs/readme/loginpage.png)
 
 6. As a **Website User**, I can create/edit and delete Portfolios of assets so that I can manage and track my crypto holdings.
     - The user log in to the page and is directed to the portfolios list.
     - The user click on the button "Create a new portfolio" and is directed to a form in the Create Portfolio page.
     - The user type a name for his portfolio and click on Submit button.
     - The user is redirected to the portfolios list page and a message is displayed confirming the portfolio was created.
+
+      ![](./docs/readme/portcreated.png)
+
     - The portfolios list page displays all the portfolios with the buttons view, edit and delete.
+
+      ![](./docs/readme/portfolioslist.png)
+    
     - To update the portfolio's name, the user clicks on the edit button and will be directed to a form to update the portfolio's name.
+      
+      ![](./docs/readme/updateportfolio.png)
+    
     - After choose a new name for his portfolio and click on Submit button. The user is redirected back to the portfolios list page and a message is displayed confirming the portfolio was updated.
+
+      ![](./docs/readme/portupdated.png)
+
     - To read the portfolio, the user clicks on the view button and will be directed to the assets page with the list of assets related to that portfolio.
     - To delete the portfolio, the user clicks on the delete button and will be directed to a confirmation page to confirm the user wants to delete that portfolio.
 
-    ![](./docs/readme/portfolioslist.png)
+      ![](./docs/readme/deleteportfolio.png)
 
-    ![](./docs/readme/updateportfolio.png)
 
 7. As a **Website User** I can create/buy, read/view, update/sell and delete assets on my Portfolio so that I can have it on my holdings.
     - The user log in to the page and is directed to the portfolios list.
     - The user click on view button on the portfolio he wants to create an asset and will be directed to the assets page with the list of assets related to that portfolio.
+
+      ![](./docs/readme/listofassets.png)
+
     - To add a new asset to the portfolio, the user click on "Buy Cryptocurrency" and is directed to a form in the create asset page.
-    - The user select the cryptocurrency from a dropdown list and the quantity desired, then click submit. The user is redirected back to the assets list and view a message confirming the asset was added to the portfolio.
+    - The user select the cryptocurrency from a dropdown list and the quantity desired, then click submit. 
+      
+      ![](./docs/readme/createasset.png)
+    
+    - The user is redirected back to the assets list and view a message confirming the asset was added to the portfolio.
+
+      ![](./docs/readme/buyasset.png)
+
     - The assets list will display the crypto that was added with the fields Icon,	Symbol,	Quantity,	Price, Total, Value,	PnL and Actions with the buttons buy and sell.
     - The buy and sell buttons allow the user to update the asset.
     - To buy more of the same asset, the user clicks on "buy" button and will be directed to a form with the quantity field. The user insert the desired quantity that will be added to the total quantity of that asset.
+
+      ![](./docs/readme/update-buymore.png)
+    
     - The user click on the submit button and will be redirected back to the assets list and a confirmation message will be displayed.
+
+      ![](./docs/readme/portupdated.png)
+
     - To sell any quantity of the asset asset, the user clicks on "sell" button and will be directed to a form with the quantity field. The user insert the desired quantity that will be removed from the total quantity of that asset.
+      
+      ![](./docs/readme/update-sell.png)
+    
     - The user input a quantity greater than the full amount and click sybmit, an error message is displayed saying he can only sell the amount he holds.
+
+      ![](./docs/readme/sellassetlimit.png)
+
     - The user click on the submit button and will be redirected back to the assets list and a confirmation message will be displayed.
-    - To delete the asset, The user clicks on "sell" button and will be directed to a form with the quantity field. The user insert the total quantity that hhe holds on that asset. The user will be directed to the confirmation page to confirm he wants to sell the full amount and delete that asset.
 
-    ![](./docs/readme/listofassets.png)
+      ![](./docs/readme/portupdated.png)
 
-    ![](./docs/readme/createasset.png)
+    - To delete the asset, The user clicks on "sell" button and will be directed to a form with the quantity field. The user insert the total quantity that he holds on that asset. The user will be directed to the confirmation page to confirm he wants to sell the full amount and delete that asset.
 
-    ![](./docs/readme/update-buymore.png)
+      ![](./docs/readme/deleteassset.png)
+    
+    - The user is redirected to the portfolio page and a confirmation message will be displayed.
 
-    ![](./docs/readme/update-sell.png)
+      ![](./docs/readme/assetdeleted.png)
 
 ## Fixed bugs
 
