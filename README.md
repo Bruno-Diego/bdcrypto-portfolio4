@@ -174,6 +174,8 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 
 ## Code validation
 
+  ![](./docs/readme/validation.png)
+
 - HTML
   - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbdcrypto-portfolio4.herokuapp.com%2F).
 
@@ -187,6 +189,7 @@ The relationship between the Portfolio and the Assets database is a zero-to-many
 - Python
   - No syntax errors detected on python code accordingly to [Python syntax checker](https://extendsclass.com/python-tester.html)
   ![](./docs/readme/python-tester.png)
+
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
   - Lighthouse is a feature of Google Chrome developer tools and is used to assess the performance of the website and its features. I achieved a  good performance, assessibility, best practises and SEO scores, as you can see on this [report](./docs/readme/lighthousesummary.pdf).
